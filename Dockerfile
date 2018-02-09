@@ -40,6 +40,7 @@ RUN apt-get update && \
   apt-get clean
 
 COPY --from=build /bitzeny/src/bitzenyd /usr/bin/bitzenyd
+COPY --from=build /bitzeny/src/bitzeny-cli /usr/bin/bitzeny-cli
 
 VOLUME /root/.bitzeny
 EXPOSE 9252 9253
