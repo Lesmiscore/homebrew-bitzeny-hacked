@@ -12,7 +12,7 @@ RUN apt-get update && \
     libevent-dev \
     pkg-config \
     software-properties-common \
-    git && \
+    git wget && \
   add-apt-repository -y ppa:bitcoin/bitcoin && \
   apt-get update && \
   apt-get install -y libdb4.8-dev libdb4.8++-dev && \
