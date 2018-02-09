@@ -1,9 +1,7 @@
 class Bitzenyd < Formula
   desc "Bitzeny daemon"
   homepage "https://bitzeny.info"
-  url "https://github.com/BitzenyCoreDevelopers/bitzeny/releases/download/z2.0.0a/bitzeny-2.0.0.tar.gz"
   version "2.0.0"
-  sha256 "905360bab8727a852596745477d3100fec1a5e6bf5b4bc4ff8093eaa2b48abff"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
