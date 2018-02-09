@@ -19,6 +19,11 @@ class Bitzenyd < Formula
   depends_on "zeromq"
   needs :cxx11
 
+  patch do
+    url "https://gist.github.com/nao20010128nao/84543385ae23e956c38e5d8f1963906e/raw/17e8c74d4e826ad4ffd6276c1ce07791e35a11cb/patchme.diff"
+    sha256 "559ad6d4bf5f00882074fdd7de08268073d6ebcb350c3ae82256eeeaac2e5d1b"
+  end
+
   def install
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j4 -l2.5" if ENV["CIRCLECI"]
