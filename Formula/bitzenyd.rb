@@ -2,7 +2,7 @@ class Bitzenyd < Formula
   desc "Bitzeny daemon"
   homepage "https://bitzeny.info"
   version "2.0.0"
-  url "https://github.com/BitzenyCoreDevelopers/bitzeny/releases/download/not_exist"
+  url "https://github.com/BitzenyCoreDevelopers/bitzeny/releases/download/z2.0.0a/bitzeny-2.0.0.tar.gz"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
