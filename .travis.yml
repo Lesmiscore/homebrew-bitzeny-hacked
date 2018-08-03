@@ -11,7 +11,7 @@ env:
   #- TAG=yespower0.5 REF=z3.0.x-yespower0.5 REPO=bitzenyPlus/BitZenyPlus
   #- TAG=cryptozeny REF=yespower-0.5 REPO=cryptozeny/bitzeny
   - TAG=yespower0.5 REF=yespower-0.5 REPO=cryptozeny/bitzeny
-  - TAG=mingw REF=z2.0.1 REPO=bitzenyPlus/BitZenyPlus DOCKER_FILE=Dockerfile
+  - TAG=mingw REF=z2.0.1 REPO=bitzenyPlus/BitZenyPlus DOCKER_FILE=mingw.Dockerfile
 notifications:
   email: false
 before_script:
