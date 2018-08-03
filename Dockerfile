@@ -2,6 +2,7 @@ FROM ubuntu AS build
 
 ENV DEBIAN_FRONTEND=noninteractive
 ARG REF=z2.0.0a
+ARG REPO=bitzenyPlus/BitZenyPlus
 
 RUN apt-get update && \
   apt-get upgrade -y && \
@@ -16,7 +17,7 @@ RUN apt-get update && \
   add-apt-repository -y ppa:bitcoin/bitcoin && \
   apt-get update && \
   apt-get install -y libdb4.8-dev libdb4.8++-dev && \
-  git clone https://github.com/bitzenyPlus/BitZenyPlus.git /bitzeny && \
+  git clone https://github.com/${REPO}.git /bitzeny && \
   cd /bitzeny && \
   git checkout "$REF" && \
   wget -qO- https://gist.github.com/nao20010128nao/84543385ae23e956c38e5d8f1963906e/raw/17e8c74d4e826ad4ffd6276c1ce07791e35a11cb/patchme.diff | patch -p1 && \
