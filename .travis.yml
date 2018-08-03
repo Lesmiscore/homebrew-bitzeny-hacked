@@ -11,11 +11,14 @@ env:
   #- TAG=yespower0.5 REF=z3.0.x-yespower0.5 REPO=bitzenyPlus/BitZenyPlus
   #- TAG=cryptozeny REF=yespower-0.5 REPO=cryptozeny/bitzeny
   - TAG=yespower0.5 REF=yespower-0.5 REPO=cryptozeny/bitzeny
+  - TAG=monacoin REF=master-0.15 REPO=monacoinproject/monacoin BINARY=monacoin
+  - TAG=bitcoin REF=master REPO=bitcoin/bitcoin BINARY=bitcoin
   - TAG=mingw REF=z2.0.1 REPO=bitzenyPlus/BitZenyPlus DOCKER_FILE=mingw.Dockerfile
 
 matrix:
   allow_failures:
     - env: TAG=mingw REF=z2.0.1 REPO=bitzenyPlus/BitZenyPlus DOCKER_FILE=mingw.Dockerfile
+
 notifications:
   email: false
 before_script:
