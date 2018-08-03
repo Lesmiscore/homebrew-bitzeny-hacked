@@ -24,7 +24,7 @@ RUN apt-get update && \
   cd /bitzeny && \
   git checkout "$REF" && \
   cd depends && \
-  make HOST=x86_64-w64-mingw32 -j2 && \
+  make HOST=x86_64-w64-mingw32 -j8 && \
   cd .. && \
   ./autogen.sh && \
   CONFIG_SITE=depends/x86_64-w64-mingw32/share/config.site ./configure --host=x86_64-w64-mingw32 --without-miniupnpc --disable-tests --with-boost=depends/x86_64-w64-mingw32/include/boost/ --with-qt-bindir=depends/x86_64-w64-mingw32/bin/ && \
