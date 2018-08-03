@@ -24,8 +24,8 @@ RUN apt-get update && \
   ./autogen.sh && \
   ./configure --prefix=/usr --without-miniupnpc --without-gui --disable-tests && \
   make -j8 && \
-  strip bitzenyd bitzeny-cli bitzeny-tx && \
-  file bitzenyd bitzeny-cli bitzeny-tx
+  strip src/bitzenyd src/bitzeny-cli src/bitzeny-tx && \
+  file  src/bitzenyd src/bitzeny-cli src/bitzeny-tx
 
 # wget -qO- https://gist.github.com/nao20010128nao/429b24e3b03e2e12d2a145a728b25aa5/raw/a37ea227a2ba55eaca74e4a0decb4031cb677d68/bitzeny-nohalving.diff | patch -p1 && \
   
