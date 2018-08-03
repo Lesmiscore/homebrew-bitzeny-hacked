@@ -13,11 +13,6 @@ env:
   - TAG=yespower0.5 REF=yespower-0.5 REPO=cryptozeny/bitzeny
   - TAG=monacoin REF=master-0.15 REPO=monacoinproject/monacoin BINARY=monacoin
   - TAG=bitcoin REF=master REPO=bitcoin/bitcoin BINARY=bitcoin
-  - TAG=mingw REF=z2.0.1 REPO=bitzenyPlus/BitZenyPlus DOCKER_FILE=mingw.Dockerfile
-
-matrix:
-  allow_failures:
-    - env: TAG=mingw REF=z2.0.1 REPO=bitzenyPlus/BitZenyPlus DOCKER_FILE=mingw.Dockerfile
 
 notifications:
   email: false
