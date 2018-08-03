@@ -13,7 +13,7 @@ RUN apt-get update && \
     libevent-dev \
     pkg-config \
     software-properties-common \
-    git wget \
+    git wget curl \
     g++-mingw-w64-x86-64 \
     bsdmainutils \
     qtbase5-dev-tools qtbase5-dev && \
