@@ -16,7 +16,7 @@ RUN apt-get update && \
     git wget \
     g++-mingw-w64-x86-64 \
     bsdmainutils \
-    qtbase5-dev-tools qtbase5-default && \
+    qtbase5-dev-tools qtbase5-dev && \
   add-apt-repository -y ppa:bitcoin/bitcoin && \
   apt-get update && \
   apt-get install -y libdb4.8-dev libdb4.8++-dev && \
