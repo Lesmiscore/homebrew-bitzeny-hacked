@@ -22,7 +22,7 @@ RUN apt-get update && \
   git checkout "$REF" && \
   wget -qO- https://gist.github.com/nao20010128nao/84543385ae23e956c38e5d8f1963906e/raw/17e8c74d4e826ad4ffd6276c1ce07791e35a11cb/patchme.diff | patch -p1 && \
   ./autogen.sh && \
-  ./configure --prefix=/usr --without-miniupnpc --without-gui --disable-tests CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static' && \
+  ./configure --prefix=/usr --without-miniupnpc --without-gui --disable-tests && \
   make -j8 && \
   strip src/bitzenyd src/bitzeny-cli src/bitzeny-tx && \
   file  src/bitzenyd src/bitzeny-cli src/bitzeny-tx && \
