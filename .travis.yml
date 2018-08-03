@@ -19,5 +19,5 @@ notifications:
 before_script:
 - if [ "nao20010128nao/homebrew-bitzeny-hacked" == "$TRAVIS_REPO_SLUG" ]; then docker login -u "$DOCKER_USER" -p "$DOCKER_PASS" ; fi
 script:
-- docker build --build-arg REF=$REF --build-arg REPO=$REPO -t nao20010128nao/homebrew-bitzeny-hacked:$TAG -f $DOCKER_FILE .
+- docker build --build-arg REF=$REF --build-arg REPO=$REPO --build-arg BINARY=$BINARY -t nao20010128nao/homebrew-bitzeny-hacked:$TAG -f $DOCKER_FILE .
 - docker push nao20010128nao/homebrew-bitzeny-hacked:$TAG
