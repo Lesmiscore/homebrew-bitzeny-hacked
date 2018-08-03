@@ -6,10 +6,11 @@ env:
   - DOCKER_USER=nao20010128nao
   - secure: lEOeQwI1LqLt1gBw9HZsulWkaQeQhrVrIcstKNUZnpR3euoWJ/HuCECcGz4ayKGiqpRYPkDJij3CSn44kIxwlQYFY5wh10oa0HBYLpZmXsk1Q2pLgOlM6CTSQRDsGjem7nzmo6+DzcmSobLBG8dYdYFp9FAbD8SB93V6QMbTjvTJDfOPPQCrEJOc2/XbjoTDJ94qudiXNgORRIlbQpxG4EmVWEh11l6p61coUTf1QHZjLYlRMNXE7Erd2HlA5d2LLk0jwjE/HF37twA4ooVXjyu/7bXhRSrXc0+uqHCE81biix3DR7QQhuuUjYD9wJK7omeGKKROHfJzF1TChgbjXc6zxbMs+IIYJD9uQURUwYzRv/J3ElZGlIYtfgOEs2m8qzjQuOQCyX5nykx8E+rNuEXQT9dG4BB/66cgB54cNRoKQ6qNVVVGjy4qjltUF9akqi+1h2G4A7jWAJfCrX9gy7bhhI/PWySdv0Wj1eU7HHFZZ6YK5NhaalTs4C3Sf7oy6Ey8fYzKl0BFnZjibia00dKZKB58rr3h22QwxqHdmOLKoLyJTnVXJ59qAS/wXy2/UMW7JImr50cImgJL8+1h7HjNEDI64Tl9D4iYTGEuS/i/P4lJPoz+aJkPWFQmO1g9alVtw2E1bR4GW0mxO8pewdEr6kUvczoYgNVx2gZMtk8=
   - REF=z2.0.1
+  - TAG=latest
 notifications:
   email: false
 before_script:
 - if [ "nao20010128nao/homebrew-bitzeny-hacked" == "$TRAVIS_REPO_SLUG" ]; then docker login -u "$DOCKER_USER" -p "$DOCKER_PASS" ; fi
 script:
-- docker build --build-arg REF=$REF -t "nao20010128nao/homebrew-bitzeny-hacked:rev1" .
-- docker push nao20010128nao/homebrew-bitzeny-hacked:rev1
+- docker build --build-arg REF=$REF -t "nao20010128nao/homebrew-bitzeny-hacked:$TAG" .
+- docker push "nao20010128nao/homebrew-bitzeny-hacked:$TAG"
