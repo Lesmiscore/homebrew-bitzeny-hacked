@@ -4,6 +4,10 @@ ENV DEBIAN_FRONTEND=noninteractive
 ARG REF=z2.0.0a
 ARG REPO=bitzenyPlus/BitZenyPlus
 ARG BINARY=bitzeny
+ARG PATCHES=patches.txt
+
+COPY patch.sh /usr/bin/patch-multi
+COPY $PATCHES /patches.txt
 
 RUN apt-get update && \
   apt-get upgrade -y && \
@@ -21,7 +25,7 @@ RUN apt-get update && \
   git clone https://github.com/${REPO}.git /${BINARY} && \
   cd /${BINARY} && \
   git checkout "$REF" && \
-  wget -qO- https://gist.github.com/nao20010128nao/84543385ae23e956c38e5d8f1963906e/raw/17e8c74d4e826ad4ffd6276c1ce07791e35a11cb/patchme.diff | patch -p1 && \
+  patch-multi /patches.txt && \
   ./autogen.sh && \
   ./configure --prefix=/usr --without-miniupnpc --without-gui --disable-tests && \
   make -j8 && \
