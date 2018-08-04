@@ -33,6 +33,8 @@ RUN apt-get update && \
   
 FROM ubuntu
 
+ARG BINARY=bitzeny
+
 RUN apt-get update && \
   apt-get upgrade -y && \
   apt-get install -y \
