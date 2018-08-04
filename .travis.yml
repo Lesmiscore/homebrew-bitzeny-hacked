@@ -12,7 +12,6 @@ env:
   #- TAG=yespower0.5 REF=z3.0.x-yespower0.5 REPO=bitzenyPlus/BitZenyPlus
   #- TAG=cryptozeny REF=yespower-0.5 REPO=cryptozeny/bitzeny
   - TAG=yespower0.5 REF=yespower-0.5 REPO=cryptozeny/bitzeny
-  - TAG=monacoin REF=monacoin-0.15.1 REPO=monacoinproject/monacoin BINARY=monacoin
   - TAG=bitcoin REF=master REPO=bitcoin/bitcoin BINARY=bitcoin
 
 notifications:
