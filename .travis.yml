@@ -9,9 +9,7 @@ env:
   - BINARY=bitzeny
   matrix:
   - TAG=latest REF=z2.0.1 REPO=bitzenyPlus/BitZenyPlus
-  #- TAG=yespower0.5 REF=z3.0.x-yespower0.5 REPO=bitzenyPlus/BitZenyPlus
-  #- TAG=cryptozeny REF=yespower-0.5 REPO=cryptozeny/bitzeny
-  - TAG=yespower0.5 REF=yespower-0.5 REPO=cryptozeny/bitzeny
+  - TAG=yespower0.5 REF=feature/yespower-0.5 REPO=bitzenyPlus/BitZenyPlus
   - TAG=bitcoin REF=master REPO=bitcoin/bitcoin BINARY=bitcoin
 
 notifications:
