@@ -27,7 +27,7 @@ RUN apt-get update && \
   git checkout "$REF" && \
   patch-multi /patches.txt && \
   ./autogen.sh && \
-  ./configure --prefix=/usr --without-miniupnpc --without-gui --disable-tests && \
+  ./configure --prefix=/usr --without-miniupnpc --without-gui --disable-tests --disable-bench && \
   make -j8 && \
   strip src/${BINARY}d src/${BINARY}-cli src/${BINARY}-tx && \
   file  src/${BINARY}d src/${BINARY}-cli src/${BINARY}-tx && \
