@@ -56,7 +56,7 @@ COPY --from=build /${BINARY}/src/${BINARY}d /usr/bin/${BINARY}d
 COPY --from=build /${BINARY}/src/${BINARY}-cli /usr/bin/${BINARY}-cli
 COPY --from=build /${BINARY}/src/${BINARY}-tx /usr/bin/${BINARY}-tx
 
-RUN ln -s /usr/bin/${BINARY} /usr/bin/coind
+RUN ln -s /usr/bin/${BINARY}d /usr/bin/coind
 
 VOLUME /root/.${BINARY}
 EXPOSE 9252 9253 19252 19253
