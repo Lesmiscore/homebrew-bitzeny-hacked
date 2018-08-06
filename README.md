@@ -1,14 +1,4 @@
-# homebrew-bitzeny
-
-## For use on your brew
-
-```
-$ brew tap BitzenyCoreDevelopers/bitzeny
-$ brew install <Formula>
-```
-
-## Formula
-
-- `bitzenyd`
-- `bitzeny-qt`
-- `cpuminer-yescrypt`
+# homebrew-bitzeny-hacked
+No brew (DO NOT ADD!) for this repo    
+Dockerfile in this repo is only made for me, so don't use as-is. (Using it for a reference is OK)    
+It may break your environment.    
