@@ -1,1 +1,2 @@
 https://gist.github.com/nao20010128nao/84543385ae23e956c38e5d8f1963906e/raw/17e8c74d4e826ad4ffd6276c1ce07791e35a11cb/patchme.diff
+https://gist.github.com/nao20010128nao/b68934fe0e7a44e51a7a57b81b10a146/raw/1b5d2ed495e68232510e8ea0f18f5b794fc334d3/bitcoin-lesmi-client.diff
