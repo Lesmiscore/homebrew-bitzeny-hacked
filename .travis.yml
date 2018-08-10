@@ -11,6 +11,7 @@ env:
   - TAG=latest REF=z2.0.1 REPO=bitzenyPlus/BitZenyPlus
   - TAG=3.0 REF=v3.0-dev REPO=bitzenyPlus/BitZenyPlus
   - TAG=bitcoin REF=master REPO=bitcoin/bitcoin BINARY=bitcoin
+  - TAG=monacoin REF=master-0.16 REPO=monacoinproject/monacoin BINARY=monacoin
 
 notifications:
   email: false
