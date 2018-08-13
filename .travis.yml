@@ -13,12 +13,12 @@ env:
   - TAG=bitcoin REF=master REPO=bitcoin/bitcoin BINARY=bitcoin
   - TAG=monacoin REF=master-0.16 REPO=monacoinproject/monacoin BINARY=monacoin
   - TAG=mangacoin REF=master REPO=mangacoinproject/mangacoin BINARY=mangacoin
-  - TAG=mangacoin-reorg REF=master REPO=nao20010128nao/mangacoin BINARY=mangacoin
+  - TAG=mangacoin-reorg REF=master REPO=nao20010128nao/mangacoin-nopremines BINARY=mangacoin
 
 matrix:
   allow_failures:
     - env: TAG=mangacoin REF=master REPO=mangacoinproject/mangacoin BINARY=mangacoin
-    - env: TAG=mangacoin-reorg REF=master REPO=nao20010128nao/mangacoin BINARY=mangacoin
+    - env: TAG=mangacoin-reorg REF=master REPO=nao20010128nao/mangacoin-nopremines BINARY=mangacoin
 
 notifications:
   email: false
