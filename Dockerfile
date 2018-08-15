@@ -5,9 +5,13 @@ ARG REF=z2.0.0a
 ARG REPO=bitzenyPlus/BitZenyPlus
 ARG BINARY=bitzeny
 ARG PATCHES=patches.txt
+ARG JOBS=8
+# should be NO, because almost coins have sane build program
+ARG USE_DEPENDS=no
 
 COPY patch.sh /usr/bin/patch-multi
 COPY $PATCHES /patches.txt
+COPY builds.sh /usr/bin/build-now
 
 RUN apt-get update && \
   apt-get upgrade -y && \
@@ -26,12 +30,7 @@ RUN apt-get update && \
   cd /${BINARY} && \
   git checkout "$REF" && \
   patch-multi /patches.txt && \
-  ./autogen.sh && \
-  ./configure --prefix=/usr --without-miniupnpc --without-gui --disable-tests --disable-bench && \
-  make -j8 && \
-  strip src/${BINARY}d src/${BINARY}-cli src/${BINARY}-tx && \
-  file  src/${BINARY}d src/${BINARY}-cli src/${BINARY}-tx && \
-  ldd   src/${BINARY}d src/${BINARY}-cli src/${BINARY}-tx
+  build-now
 
 # wget -qO- https://gist.github.com/nao20010128nao/429b24e3b03e2e12d2a145a728b25aa5/raw/a37ea227a2ba55eaca74e4a0decb4031cb677d68/bitzeny-nohalving.diff | patch -p1 && \
   
