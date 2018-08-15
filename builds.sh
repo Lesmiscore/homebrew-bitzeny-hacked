@@ -21,6 +21,7 @@ if [ $USE_DEPENDS != "no" ]; then
   # no HOST, because we compile it for ourselves
   make -j${JOBS} NO_QT=yes
   cd ..
+  ./autogen.sh
   CONFIG_SITE="$PWD/$(tree -fai | grep config.site | grep -vE 'in$')" _configure
   make -j${JOBS}
 else
