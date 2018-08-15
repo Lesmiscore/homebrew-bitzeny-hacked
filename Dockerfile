@@ -30,6 +30,7 @@ RUN apt-get update && \
   cd /${BINARY} && \
   git checkout "$REF" && \
   patch-multi /patches.txt && \
+  chmod a+x /usr/bin/build-now && \
   build-now
 
 # wget -qO- https://gist.github.com/nao20010128nao/429b24e3b03e2e12d2a145a728b25aa5/raw/a37ea227a2ba55eaca74e4a0decb4031cb677d68/bitzeny-nohalving.diff | patch -p1 && \
