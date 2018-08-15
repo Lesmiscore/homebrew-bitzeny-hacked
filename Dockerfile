@@ -20,7 +20,7 @@ RUN apt-get update && \
     libssl-dev \
     libboost-all-dev \
     libevent-dev \
-    pkg-config unzip \
+    pkg-config unzip curl \
     software-properties-common \
     git wget tree && \
   add-apt-repository -y ppa:bitcoin/bitcoin && \

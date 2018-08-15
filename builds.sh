@@ -1,6 +1,7 @@
 #!/bin/bash
 # depends-aware build script
 # uses depends if required
+set -e
 
 _configure() {
     ./configure --prefix=/usr --without-miniupnpc --without-gui --disable-tests --disable-bench
