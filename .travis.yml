@@ -18,8 +18,8 @@ env:
 
 matrix:
   allow_failures:
-    - env: TAG=mangacoin REF=master REPO=mangacoinproject/mangacoin BINARY=mangacoin
-    - env: TAG=mangacoin-reorg REF=master REPO=nao20010128nao/mangacoin-nopremines BINARY=mangacoin
+    - env: TAG=mangacoin REF=master REPO=mangacoinproject/mangacoin BINARY=mangacoin USE_DEPENDS=yes
+    - env: TAG=mangacoin-reorg REF=master REPO=nao20010128nao/mangacoin-nopremines BINARY=mangacoin USE_DEPENDS=yes
 
 notifications:
   email: false
