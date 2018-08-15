@@ -12,7 +12,7 @@ if [ $USE_DEPENDS = "yes" ]; then
   # no HOST, because we compile it for ourselves
   make -j${JOBS} NO_QT=yes
   cd ..
-  CONFIG_SITE="$HOME/$(tree -fai | grep config.site | grep -vE 'in$')" _configure
+  CONFIG_SITE="$PWD/$(tree -fai | grep config.site | grep -vE 'in$')" _configure
   make -j${JOBS}
 else
   # compiles normally
