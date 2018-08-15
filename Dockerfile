@@ -20,9 +20,9 @@ RUN apt-get update && \
     libssl-dev \
     libboost-all-dev \
     libevent-dev \
-    pkg-config \
+    pkg-config unzip \
     software-properties-common \
-    git wget && \
+    git wget tree && \
   add-apt-repository -y ppa:bitcoin/bitcoin && \
   apt-get update && \
   apt-get install -y libdb4.8-dev libdb4.8++-dev && \

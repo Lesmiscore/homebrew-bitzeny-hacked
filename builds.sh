@@ -6,7 +6,15 @@ _configure() {
     ./configure --prefix=/usr --without-miniupnpc --without-gui --disable-tests --disable-bench
 }
 
-if [ $USE_DEPENDS = "yes" ]; then
+if [ $USE_DEPENDS != "no" ]; then
+  if [ $USE_DEPENDS != "yes" ]; then
+    # use specified file for depends
+    rm -rf depends/
+    wget -q -O /tmp/file.zip "$USE_DEPENDS"
+    mkdir /tmp/work
+    unzip /tmp/file.zip -d /tmp/work
+    mv /tmp/work/*/depends .
+  fi
   # compile w/ depends, used for insane coin
   cd depends/
   # no HOST, because we compile it for ourselves
