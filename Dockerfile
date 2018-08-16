@@ -22,7 +22,7 @@ RUN apt-get update && \
     libevent-dev \
     pkg-config unzip curl \
     software-properties-common \
-    git wget tree && \
+    git wget tree cmake && \
   add-apt-repository -y ppa:bitcoin/bitcoin && \
   apt-get update && \
   apt-get install -y libdb4.8-dev libdb4.8++-dev && \

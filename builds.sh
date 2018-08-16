@@ -3,8 +3,23 @@
 # uses depends if required
 set -e
 
+
+_mustfile() {
+  [ -e $1 ] && [ -f $1 ]
+}
+
 _configure() {
+  if _mustfile configure ; then
     ./configure --prefix=/usr --without-miniupnpc --without-gui --disable-tests --disable-bench
+  fi
+}
+
+_makefile() {
+  if _mustfile autogen.sh ; then
+    ./autogen.sh
+  elif _mustfile CMakeLists.txt ; then
+    cmake .
+  fi
 }
 
 if [ $USE_DEPENDS != "no" ]; then
@@ -21,12 +36,12 @@ if [ $USE_DEPENDS != "no" ]; then
   # no HOST, because we compile it for ourselves
   make -j${JOBS} NO_QT=yes
   cd ..
-  ./autogen.sh
+  _makefile
   CONFIG_SITE="$PWD/$(tree -fai | grep config.site | grep -vE 'in$')" _configure
   make -j${JOBS}
 else
   # compiles normally
-  ./autogen.sh
+  _makefile
   _configure
   make -j${JOBS}
 fi
