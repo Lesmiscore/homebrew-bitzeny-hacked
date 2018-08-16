@@ -23,7 +23,7 @@ _makefile() {
 _make() {
   if _mustfile src/makefile.unix ; then
     cd src/
-    make -j${JOBS} -f makefile.unix
+    make -j${JOBS} -f makefile.unix USE_UPNP=-
     cd ..
   elif _mustfile Makefile ; then
     make -j${JOBS}
