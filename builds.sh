@@ -17,8 +17,16 @@ _configure() {
 _makefile() {
   if _mustfile autogen.sh ; then
     ./autogen.sh
-  elif _mustfile CMakeLists.txt ; then
-    cmake .
+  fi
+}
+
+_make() {
+  if _mustfile src/makefile.unix ; then
+    cd src/
+    make -j${JOBS} -f makefile.unix
+    cd ..
+  elif _mustfile Makefile ; then
+    make -j${JOBS}
   fi
 }
 
@@ -38,12 +46,12 @@ if [ $USE_DEPENDS != "no" ]; then
   cd ..
   _makefile
   CONFIG_SITE="$PWD/$(tree -fai | grep config.site | grep -vE 'in$')" _configure
-  make -j${JOBS}
+  _make
 else
   # compiles normally
   _makefile
   _configure
-  make -j${JOBS}
+  _make
 fi
 
 
