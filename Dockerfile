@@ -13,9 +13,10 @@ COPY patch.sh /usr/bin/patch-multi
 COPY $PATCHES /patches.txt
 COPY builds.sh /usr/bin/build-now
 
-RUN apt-get update && \
-  apt-get upgrade -y && \
-  apt-get install -y build-essential \
+RUN apt-get update -qq && \
+  apt-get upgrade -y -qq && \
+  apt-get install -y -qq \
+    build-essential \
     libtool autotools-dev autoconf \
     libssl-dev \
     libboost-all-dev \
@@ -24,8 +25,8 @@ RUN apt-get update && \
     software-properties-common \
     git wget tree cmake && \
   add-apt-repository -y ppa:bitcoin/bitcoin && \
-  apt-get update && \
-  apt-get install -y libdb4.8-dev libdb4.8++-dev && \
+  apt-get update -qq && \
+  apt-get install -y -qq libdb4.8-dev libdb4.8++-dev && \
   git clone https://github.com/${REPO}.git /${BINARY} && \
   cd /${BINARY} && \
   git checkout "$REF" && \
@@ -39,17 +40,17 @@ FROM ubuntu
 
 ARG BINARY=bitzeny
 
-RUN apt-get update && \
-  apt-get upgrade -y && \
-  apt-get install -y \
+RUN apt-get update -qq && \
+  apt-get upgrade -y -qq && \
+  apt-get install -y -qq \
     libssl-dev \
     libboost-all-dev \
     libevent-dev \
     software-properties-common && \
   add-apt-repository -y ppa:bitcoin/bitcoin && \
-  apt-get update && \
-  apt-get install -y libdb4.8-dev libdb4.8++-dev && \
-  apt-get autoremove -y software-properties-common && \
+  apt-get update -qq && \
+  apt-get install -y -qq libdb4.8-dev libdb4.8++-dev && \
+  apt-get autoremove -y -qq software-properties-common && \
   apt-get clean
 
 COPY --from=build /${BINARY}/src/${BINARY}d /usr/bin/${BINARY}d
