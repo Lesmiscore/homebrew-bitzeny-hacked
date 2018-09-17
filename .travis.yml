@@ -13,7 +13,7 @@ env:
   - TAG=3.0 REF=v3.0-dev REPO=bitzenyPlus/BitZenyPlus
   - TAG=bitcoin REF=master REPO=bitcoin/bitcoin BINARY=bitcoin
   - TAG=monacoin REF=master-0.16 REPO=monacoinproject/monacoin BINARY=monacoin
-  - TAG=neetcoin REF=master REPO=NEETCOINTeam/NEETCOIN BINARY=NEETCOIN
+  - TAG=bellcoin REF=master REPO=bellcoin-org/bellcoin BINARY=bellcoin
 
 matrix:
   allow_failures: []
