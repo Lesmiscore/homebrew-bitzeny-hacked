@@ -1,6 +1,11 @@
 FROM ubuntu AS build
 
 ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update -qq -y && \
+  apt-get install -y wget aria2 && \
+  wget -O /bin/apt-fast https://github.com/ilikenwf/apt-fast/raw/master/apt-fast
+
 ARG REF=z2.0.0a
 ARG REPO=bitzenyPlus/BitZenyPlus
 ARG BINARY=bitzeny
@@ -13,9 +18,8 @@ COPY patch.sh /usr/bin/patch-multi
 COPY $PATCHES /patches.txt
 COPY builds.sh /usr/bin/build-now
 
-RUN apt-get update -qq && \
-  apt-get upgrade -y -qq && \
-  apt-get install -y -qq \
+RUN apt-fast upgrade -y -qq && \
+  apt-fast install -y -qq \
     build-essential \
     libtool autotools-dev autoconf \
     libssl-dev \
@@ -23,13 +27,13 @@ RUN apt-get update -qq && \
     libevent-dev \
     pkg-config unzip curl \
     software-properties-common \
-    git wget tree cmake && \
+    git tree cmake && \
   add-apt-repository -y ppa:bitcoin/bitcoin && \
-  apt-get update -qq && \
-  apt-get install -y -qq libdb4.8-dev libdb4.8++-dev && \
+  apt-fast update -qq && \
+  apt-fast install -y -qq libdb4.8-dev libdb4.8++-dev && \
   git clone https://github.com/${REPO}.git /${BINARY} && \
   cd /${BINARY} && \
-  git checkout "$REF" && \
+  git checkout "$REF" && 
   patch-multi /patches.txt && \
   chmod a+x /usr/bin/build-now && \
   build-now
