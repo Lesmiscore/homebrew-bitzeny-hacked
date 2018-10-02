@@ -33,7 +33,7 @@ RUN apt-fast upgrade -y -qq && \
   apt-fast install -y -qq libdb4.8-dev libdb4.8++-dev && \
   git clone https://github.com/${REPO}.git /${BINARY} && \
   cd /${BINARY} && \
-  git checkout "$REF" && 
+  git checkout "$REF" && \
   patch-multi /patches.txt && \
   chmod a+x /usr/bin/build-now && \
   build-now
