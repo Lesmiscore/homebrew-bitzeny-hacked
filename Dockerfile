@@ -4,7 +4,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update -qq -y && \
   apt-get install -y wget aria2 && \
-  wget -O /bin/apt-fast https://github.com/ilikenwf/apt-fast/raw/master/apt-fast
+  wget -O /bin/apt-fast https://github.com/ilikenwf/apt-fast/raw/master/apt-fast && \
+  chmod +x /bin/apt-fast
 
 ARG REF=z2.0.0a
 ARG REPO=bitzenyPlus/BitZenyPlus
