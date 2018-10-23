@@ -30,7 +30,8 @@ RUN apt-fast upgrade -y -qq && \
     libevent-dev \
     pkg-config unzip curl \
     software-properties-common \
-    git tree cmake && \
+    git tree cmake \
+    clang clang++ lld && \
   add-apt-repository -y ppa:bitcoin/bitcoin && \
   apt-fast update -qq && \
   apt-fast install -y -qq libdb4.8-dev libdb4.8++-dev && \
