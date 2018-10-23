@@ -35,6 +35,7 @@ RUN apt-fast upgrade -y -qq && \
   add-apt-repository -y ppa:bitcoin/bitcoin && \
   apt-fast update -qq && \
   apt-fast install -y -qq libdb4.8-dev libdb4.8++-dev && \
+  rm /usr/bin/ld && ln -s /usr/bin/ld.lld /usr/bin/ld && \
   git clone https://github.com/${REPO}.git /${BINARY} && \
   cd /${BINARY} && \
   git checkout "$REF" && \
