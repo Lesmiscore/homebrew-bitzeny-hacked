@@ -31,7 +31,7 @@ RUN apt-fast upgrade -y -qq && \
     pkg-config unzip curl \
     software-properties-common \
     git tree cmake \
-    clang clang++ lld && \
+    clang lld && \
   add-apt-repository -y ppa:bitcoin/bitcoin && \
   apt-fast update -qq && \
   apt-fast install -y -qq libdb4.8-dev libdb4.8++-dev && \
