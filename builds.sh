@@ -10,7 +10,7 @@ _mustfile() {
 
 _configure() {
   if _mustfile configure ; then
-    ./configure CC="clang -fPIC" CXX="clang++ -fPIC" LD=ld.lld --prefix=/usr --without-miniupnpc --without-gui --disable-tests --disable-bench
+    ./configure C{,XX}FLAGS="-O3 -g -fPIC" --prefix=/usr --without-miniupnpc --without-gui --disable-tests --disable-bench
   fi
 }
 
