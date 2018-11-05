@@ -8,14 +8,15 @@ env:
   - DOCKER_FILE=Dockerfile
   - BINARY=bitzeny
   - USE_DEPENDS=no
+  - PATCHES=patches.txt
   matrix:
   - TAG=latest REF=z2.0.x REPO=BitzenyCoreDevelopers/bitzeny
   - TAG=3.0 REF=v3.0-dev REPO=bitzenyPlus/BitZenyPlus
-  - TAG=1.2.1 REF=z1.2.1 REPO=BitzenyCoreDevelopers/bitzeny
   - TAG=bitcoin REF=master REPO=bitcoin/bitcoin BINARY=bitcoin
   - TAG=monacoin REF=monacoin-0.16.3 REPO=monacoinproject/monacoin BINARY=monacoin
   - TAG=bellcoin REF=master REPO=bellcoin-org/bellcoin BINARY=bellcoin
   - TAG=lesmicoin REF=master REPO=nao20010128nao/lesmicoin BINARY=lesmicoin
+  - TAG=mangacoin REF=master REPO=mangacoinproject/mangacoin BINARY=mangacoin PATCHES=manga_patches.txt
 
 matrix:
   allow_failures: []
