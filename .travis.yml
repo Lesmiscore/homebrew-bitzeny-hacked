@@ -16,7 +16,7 @@ env:
   - TAG=monacoin REF=monacoin-0.16.3 REPO=monacoinproject/monacoin BINARY=monacoin
   - TAG=bellcoin REF=master REPO=bellcoin-org/bellcoin BINARY=bellcoin
   - TAG=lesmicoin REF=master REPO=nao20010128nao/lesmicoin BINARY=lesmicoin
-  - TAG=mangacoin REF=master REPO=mangacoinproject/mangacoin BINARY=mangacoin PATCHES=manga_patches.txt
+  - TAG=mangacoin REF=master REPO=mangacoinproject/mangacoin BINARY=mangacoin PATCHES=manga_patches.txt USE_DEPENDS=https://github.com/monacoinproject/monacoin/archive/master-0.16.zip
 
 matrix:
   allow_failures: []
