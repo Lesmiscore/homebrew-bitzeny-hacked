@@ -10,8 +10,9 @@ env:
   - USE_DEPENDS=no
   - PATCHES=patches.txt
   matrix:
-  - TAG=latest REF=z2.0.x REPO=BitzenyCoreDevelopers/bitzeny PATCHES=bitzeny_patches.txt
-  - TAG=3.0 REF=v3.0-dev REPO=bitzenyPlus/BitZenyPlus PATCHES=bitzeny_patches.txt
+  - TAG=latest REF=z2.0.x REPO=BitzenyCoreDevelopers/bitzeny
+  - TAG=10m-space REF=z2.0.x REPO=BitzenyCoreDevelopers/bitzeny PATCHES=bitzeny_patches.txt
+  - TAG=3.0 REF=v3.0-dev REPO=bitzenyPlus/BitZenyPlus
   - TAG=bitcoin REF=master REPO=bitcoin/bitcoin BINARY=bitcoin
   - TAG=monacoin REF=monacoin-0.16.3 REPO=monacoinproject/monacoin BINARY=monacoin
   - TAG=bellcoin REF=master REPO=bellcoin-org/bellcoin BINARY=bellcoin
