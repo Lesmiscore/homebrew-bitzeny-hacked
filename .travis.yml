@@ -11,6 +11,7 @@ env:
   matrix:
   - TAG=latest REF=z2.0.x REPO=BitzenyCoreDevelopers/bitzeny
   - TAG=3.0 REF=v3.0-dev REPO=bitzenyPlus/BitZenyPlus
+  - TAG=1.2.1 REF=z1.2.1 REPO=BitzenyCoreDevelopers/bitzeny
   - TAG=bitcoin REF=master REPO=bitcoin/bitcoin BINARY=bitcoin
   - TAG=monacoin REF=monacoin-0.16.3 REPO=monacoinproject/monacoin BINARY=monacoin
   - TAG=bellcoin REF=master REPO=bellcoin-org/bellcoin BINARY=bellcoin
