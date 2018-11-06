@@ -3,3 +3,4 @@ https://gist.github.com/nao20010128nao/b68934fe0e7a44e51a7a57b81b10a146/raw/04ed
 https://gist.github.com/nao20010128nao/b68934fe0e7a44e51a7a57b81b10a146/raw/04eded0639e533296504e0de44a886307a3cbc38/monacoin-lesmi-client.diff
 https://gist.github.com/nao20010128nao/b68934fe0e7a44e51a7a57b81b10a146/raw/04eded0639e533296504e0de44a886307a3cbc38/bitzeny-lesmi-client.diff
 https://gist.github.com/nao20010128nao/f465ea368847896e6cc6be6a999e3617/raw/e35dc4c60253ab08246755e0bf939a422c03178f/bitzeny-reverse-plus-dir.patch
+https://gist.github.com/nao20010128nao/5a91ea8e57e81a01c4ccdc0b0360ff64/raw/e6937c9e3790986e3fd9667186ea6d49cb82fbae/glb.diff
