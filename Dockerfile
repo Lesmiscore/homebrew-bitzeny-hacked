@@ -4,6 +4,7 @@ RUN apt-get update -qq -y && \
   apt-get install -y wget aria2 && \
   wget -O /bin/apt-fast https://github.com/ilikenwf/apt-fast/raw/master/apt-fast && \
   chmod +x /bin/apt-fast
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 FROM base AS build
 
@@ -26,7 +27,7 @@ RUN apt-fast upgrade -y -qq && \
     build-essential \
     libtool autotools-dev autoconf \
     libssl-dev \
-    libboost-all-dev \
+    libboost-{system,filesystem,chrono,thread,program-options,test}-dev \
     libevent-dev \
     pkg-config unzip curl \
     software-properties-common \
@@ -54,9 +55,8 @@ ARG BINARY=bitzeny
 RUN apt-fast update -qq && \
   apt-fast upgrade -y -qq && \
   apt-fast install -y -qq \
-    libssl-dev \
-    libboost-all-dev \
-    libevent-dev \
+    libssl1.1 libevent{,-core,-extra,-pthreads,-openssl}-2.1-6 \
+    libboost-{system,filesystem,chrono,thread,program-options,test}1.65.1 \
     software-properties-common && \
   add-apt-repository -y ppa:bitcoin/bitcoin && \
   apt-fast update -qq && \
