@@ -36,7 +36,7 @@ if [ $USE_DEPENDS != "no" ]; then
     rm -rf depends/
     wget -q -O /tmp/file.zip "$USE_DEPENDS"
     mkdir /tmp/work
-    unzip /tmp/file.zip -d /tmp/work
+    unzip /tmp/file.zip -d /tmp/work > /dev/null
     mv /tmp/work/*/depends .
   fi
   # compile w/ depends, used for insane coin
