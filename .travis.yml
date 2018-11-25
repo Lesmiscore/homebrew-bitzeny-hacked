@@ -14,9 +14,9 @@ env:
   - TAG=3.0 REF=v3.0-dev REPO=bitzenyPlus/BitZenyPlus
   - TAG=bitcoin REF=master REPO=bitcoin/bitcoin BINARY=bitcoin
   - TAG=monacoin REF=monacoin-0.16.3 REPO=monacoinproject/monacoin BINARY=monacoin
-  - TAG=bellcoin REF=master REPO=bellcoin-org/bellcoin BINARY=bellcoin
-  - TAG=lesmicoin REF=master REPO=nao20010128nao/lesmicoin BINARY=lesmicoin
-  - TAG=mangacoin REF=master REPO=mangacoinproject/mangacoin BINARY=mangacoin PATCHES=manga_patches.txt USE_DEPENDS=https://github.com/monacoinproject/monacoin/archive/master-0.16.zip
+#  - TAG=bellcoin REF=master REPO=bellcoin-org/bellcoin BINARY=bellcoin
+#  - TAG=lesmicoin REF=master REPO=nao20010128nao/lesmicoin BINARY=lesmicoin
+#  - TAG=mangacoin REF=master REPO=mangacoinproject/mangacoin BINARY=mangacoin PATCHES=manga_patches.txt USE_DEPENDS=https://github.com/monacoinproject/monacoin/archive/master-0.16.zip
   - TAG=mangacoin-sane REF=master REPO=mangacoinproject/mangacoin BINARY=mangacoin PATCHES=mangacoin_sane_patches.txt USE_DEPENDS=https://github.com/monacoinproject/monacoin/archive/master-0.16.zip
 
 matrix:
