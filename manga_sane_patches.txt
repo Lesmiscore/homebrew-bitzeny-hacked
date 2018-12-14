@@ -3,4 +3,4 @@ https://gist.github.com/nao20010128nao/7c201a93e968ca36318a69bbbc4b8169/raw/5512
 https://gist.github.com/nao20010128nao/5e4fdc302ca7954a26b48e0d0cf1b525/raw/874a130843be5c0117d2b5558efe6f3712ad831b/disable-mempool-conflict-check.diff
 https://gist.github.com/nao20010128nao/84543385ae23e956c38e5d8f1963906e/raw/17e8c74d4e826ad4ffd6276c1ce07791e35a11cb/patchme.diff
 https://gist.github.com/nao20010128nao/5e4fdc302ca7954a26b48e0d0cf1b525/raw/555842a98cdea37aeb7797b3d9062c93144440f6/no-mempool-fee.diff
-https://gist.github.com/nao20010128nao/61af13ccc0f9a52183d238e40cff6997/raw/c366a92c95dece5d01e3e8a1d01b4c7f7e3f81ca/add-resendmempooltransaction.diff
+https://gist.github.com/nao20010128nao/61af13ccc0f9a52183d238e40cff6997/raw/93dc21605d7d3d7678a9f7f7d09c7080a5d242e1/add-resendmempooltransaction.diff
