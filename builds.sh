@@ -41,8 +41,8 @@ if [ $USE_DEPENDS != "no" ]; then
   fi
   # compile w/ depends, used for insane coin
   cd depends/
-  # no HOST, because we compile it for ourselves
-  make -j${JOBS} NO_QT=yes
+  # guess HOST by using config.guess, with "pc-" removed 
+  make -j${JOBS} NO_QT=yes HOST="$(./config.guess | sed 's/pc-//')"
   cd ..
   _makefile
   CONFIG_SITE="$PWD/$(tree -fai | grep config.site | grep -vE 'in$')" _configure
