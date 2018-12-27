@@ -45,7 +45,7 @@ if [ $USE_DEPENDS != "no" ]; then
   make -j${JOBS} NO_QT=yes HOST="$(./config.guess | sed 's/pc-//')"
   cd ..
   _makefile
-  CONFIG_SITE="$PWD/$(tree -fai | grep config.site | grep -vE 'in$')" _configure
+  CONFIG_SITE="$PWD/depends/$(./depends/config.guess | sed 's/pc-//')/share/config.site" _configure
   _make
 else
   # compiles normally
