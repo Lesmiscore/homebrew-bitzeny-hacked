@@ -9,6 +9,12 @@ services:
     - docker build --build-arg REF=$REF --build-arg REPO=$REPO --build-arg BINARY=$BINARY --build-arg USE_DEPENDS=$USE_DEPENDS --build-arg PATCHES=$PATCHES -t nao20010128nao/homebrew-bitzeny-hacked:$TAG -f $DOCKER_FILE .
     - docker run --rm -it nao20010128nao/homebrew-bitzeny-hacked:$TAG -version
     - docker push nao20010128nao/homebrew-bitzeny-hacked:$TAG
+  variables:
+    DOCKER_USER=nao20010128nao
+    DOCKER_FILE=Dockerfile
+    BINARY=bitzeny
+    USE_DEPENDS=no
+    PATCHES=patches.txt
 
 latest:
   extends: .base
