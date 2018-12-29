@@ -1,0 +1,87 @@
+image: docker
+
+services:
+  - docker:dind
+
+.base:
+  script:
+    - if [ "nao20010128nao/homebrew-bitzeny-hacked" == "$CI_PROJECT_PATH" ]; then docker login -u "$DOCKER_USER" -p "$DOCKER_PASS" ; fi
+    - docker build --build-arg REF=$REF --build-arg REPO=$REPO --build-arg BINARY=$BINARY --build-arg USE_DEPENDS=$USE_DEPENDS --build-arg PATCHES=$PATCHES -t nao20010128nao/homebrew-bitzeny-hacked:$TAG -f $DOCKER_FILE .
+    - docker run --rm -it nao20010128nao/homebrew-bitzeny-hacked:$TAG -version
+    - docker push nao20010128nao/homebrew-bitzeny-hacked:$TAG
+
+latest:
+  extends: .base
+  variables:
+    TAG: latest
+    REF: z2.0.x
+    REPO: BitzenyCoreDevelopers/bitzeny
+
+"3.0":
+  extends: .base
+  variables:
+    TAG: "3.0"
+    REF: v3.0-dev
+    REPO: bitzenyPlus/BitZenyPlus
+
+bitcoin:
+  extends: .base
+  variables:
+    TAG: bitcoin
+    REF: master
+    REPO: bitcoin/bitcoin
+    BINARY: bitcoin
+
+monacoin:
+  extends: .base
+  variables:
+    TAG: monacoin
+    REF: monacoin-0.16.3
+    REPO: monacoinproject/monacoin
+    BINARY: monacoin
+
+bellcoin:
+  extends: .base
+  variables:
+    TAG: bellcoin
+    REF: master
+    REPO: bellcoin-org/bellcoin
+    BINARY: bellcoin
+
+lesmicoin:
+  extends: .base
+  variables:
+    TAG: lesmicoin
+    REF: master
+    REPO: nao20010128nao/lesmicoin
+    BINARY: lesmicoin
+
+mangacoin:
+  extends: .base
+  variables:
+    TAG: mangacoin
+    REF: master
+    REPO: mangacoinproject/mangacoin
+    BINARY: mangacoin
+    PATCHES: manga_patches.txt
+    USE_DEPENDS: https://github.com/monacoinproject/monacoin/archive/master-0.16.zip
+
+mangacoin-addrindex:
+  extends: .base
+  variables:
+    TAG: mangacoin-addrindex
+    REF: master
+    REPO: mangacoin-explore/mangacoin-mangacore
+    BINARY: mangacoin
+    PATCHES: manga_sane_patches.txt
+    USE_DEPENDS: https://github.com/monacoinproject/monacoin/archive/master-0.16.zip
+
+mangacoin-sane:
+  extends: .base
+  variables:
+    TAG: mangacoin-sane
+    REF: master
+    REPO: mangacoinproject/mangacoin
+    BINARY: mangacoin
+    PATCHES: manga_sane_patches.txt
+    USE_DEPENDS: https://github.com/monacoinproject/monacoin/archive/master-0.16.zip
