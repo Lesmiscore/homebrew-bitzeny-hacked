@@ -5,3 +5,4 @@ https://gist.github.com/nao20010128nao/b68934fe0e7a44e51a7a57b81b10a146/raw/04ed
 https://gist.github.com/nao20010128nao/f465ea368847896e6cc6be6a999e3617/raw/e35dc4c60253ab08246755e0bf939a422c03178f/bitzeny-reverse-plus-dir.patch
 https://gist.github.com/nao20010128nao/5a91ea8e57e81a01c4ccdc0b0360ff64/raw/e6937c9e3790986e3fd9667186ea6d49cb82fbae/glb.diff
 https://gist.github.com/nao20010128nao/61af13ccc0f9a52183d238e40cff6997/raw/d3b8089b6c30914903e7ee3f1bb8e5f2b934967e/add-resendmempooltransaction.diff
+https://gist.github.com/nao20010128nao/ed8cc72d88754cdcf3688079e47d0e59/raw/75b5d812f74fb58e0d7c2c051eff170d70834777/allow-frequirestandard-false.diff
