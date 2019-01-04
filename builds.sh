@@ -10,7 +10,7 @@ _mustfile() {
 
 _configure() {
   if _mustfile configure ; then
-    ./configure C{,XX}FLAGS="-Ofast -g -fPIC" --prefix=/usr --without-miniupnpc --without-gui --disable-tests --disable-bench
+    ./configure C{,XX}FLAGS="-Ofast -g -fPIC" --prefix=/usr --without-miniupnpc --without-gui --disable-tests --disable-bench --disable-man --without-libs --with-utils --with-daemon
   fi
 }
 
