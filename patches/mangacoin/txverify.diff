@@ -1,0 +1,21 @@
+diff --git a/src/consensus/tx_verify.cpp b/src/consensus/tx_verify.cpp
+index 0a71915..bdc3f28 100644
+--- a/src/consensus/tx_verify.cpp
++++ b/src/consensus/tx_verify.cpp
+@@ -180,16 +180,6 @@ bool CheckTransaction(const CTransaction& tx, CValidationState &state, bool fChe
+             return state.DoS(100, false, REJECT_INVALID, "bad-txns-txouttotal-toolarge");
+     }
+ 
+-    // Check for duplicate inputs - note that this check is slow so we skip it in CheckBlock
+-    if (fCheckDuplicateInputs) {
+-        std::set<COutPoint> vInOutPoints;
+-        for (const auto& txin : tx.vin)
+-        {
+-            if (!vInOutPoints.insert(txin.prevout).second)
+-                return state.DoS(100, false, REJECT_INVALID, "bad-txns-inputs-duplicate");
+-        }
+-    }
+-
+     if (tx.IsCoinBase())
+     {
+         if (tx.vin[0].scriptSig.size() < 2 || tx.vin[0].scriptSig.size() > 100)

@@ -1,8 +1,0 @@
-https://gist.github.com/nao20010128nao/5a91ea8e57e81a01c4ccdc0b0360ff64/raw/e6937c9e3790986e3fd9667186ea6d49cb82fbae/glb.diff
-https://gist.github.com/nao20010128nao/7c201a93e968ca36318a69bbbc4b8169/raw/55122f66a046f8e20067a273eef2ad2f63ee8a96/tight-space.diff
-https://gist.github.com/nao20010128nao/5e4fdc302ca7954a26b48e0d0cf1b525/raw/874a130843be5c0117d2b5558efe6f3712ad831b/disable-mempool-conflict-check.diff
-https://gist.github.com/nao20010128nao/84543385ae23e956c38e5d8f1963906e/raw/17e8c74d4e826ad4ffd6276c1ce07791e35a11cb/patchme.diff
-https://gist.github.com/nao20010128nao/5e4fdc302ca7954a26b48e0d0cf1b525/raw/555842a98cdea37aeb7797b3d9062c93144440f6/no-mempool-fee.diff
-https://gist.github.com/nao20010128nao/61af13ccc0f9a52183d238e40cff6997/raw/d3b8089b6c30914903e7ee3f1bb8e5f2b934967e/add-resendmempooltransaction.diff
-https://gist.github.com/nao20010128nao/6a114b886b1a3d6c50a2005c4c663b3c/raw/40c9a3f3a897641c9f0088442a777368071e8133/report-missing-inputs.diff
-https://gist.github.com/nao20010128nao/ed8cc72d88754cdcf3688079e47d0e59/raw/75b5d812f74fb58e0d7c2c051eff170d70834777/allow-frequirestandard-false.diff

@@ -14,7 +14,7 @@ services:
     DOCKER_FILE: Dockerfile
     BINARY: bitzeny
     USE_DEPENDS: "no"
-    PATCHES: patches.txt
+    PATCHES: normal
 
 latest:
   extends: .base
@@ -69,7 +69,7 @@ mangacoin:
     REF: master
     REPO: mangacoinproject/mangacoin
     BINARY: mangacoin
-    PATCHES: manga_patches.txt
+    PATCHES: mangacoin
     USE_DEPENDS: https://github.com/monacoinproject/monacoin/archive/master-0.16.zip
 
 mangacoin-addrindex:
@@ -79,7 +79,7 @@ mangacoin-addrindex:
     REF: master
     REPO: mangacoin-explore/mangacoin-mangacore
     BINARY: mangacoin
-    PATCHES: manga_sane_patches.txt
+    PATCHES: mangacoin_sane
     USE_DEPENDS: https://github.com/monacoinproject/monacoin/archive/master-0.16.zip
 
 mangacoin-sane:
@@ -89,5 +89,5 @@ mangacoin-sane:
     REF: master
     REPO: mangacoinproject/mangacoin
     BINARY: mangacoin
-    PATCHES: manga_sane_patches.txt
+    PATCHES: mangacoin_sane
     USE_DEPENDS: https://github.com/monacoinproject/monacoin/archive/master-0.16.zip

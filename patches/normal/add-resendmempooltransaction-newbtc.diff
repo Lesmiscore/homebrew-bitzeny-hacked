@@ -1,0 +1,60 @@
+diff --git a/src/rpc/rawtransaction.cpp b/src/rpc/rawtransaction.cpp
+index cbbefa4..ca2526e 100644
+--- a/src/rpc/rawtransaction.cpp
++++ b/src/rpc/rawtransaction.cpp
+@@ -1034,6 +1034,47 @@ UniValue sendrawtransaction(const JSONRPCRequest& request)
+     return hashTx.GetHex();
+ }
+ 
++UniValue resendmempooltransaction(const JSONRPCRequest& request)
++{
++    if (request.fHelp)
++        throw std::runtime_error(
++            "resendmempooltransaction\n"
++            "\nResend all transactions in mempool to network.\n"
++            "\nArguments:\n"
++            "none\n"
++            "\nResult:\n"
++            "none\n"
++            "\nExamples:\n"
++            "\nResend transactions\n"
++            + HelpExampleCli("resendmempooltransaction", "") +
++            "\nAs a json rpc call\n"
++            + HelpExampleRpc("resendmempooltransaction", "")
++        );
++
++    LOCK(cs_main);
++
++    LOCK(mempool.cs);
++
++    if(!g_connman)
++        throw JSONRPCError(RPC_CLIENT_P2P_DISABLED, "Error: Peer-to-peer functionality missing or disabled");
++
++    int nTxCount = 0;
++    for (const CTxMemPoolEntry& e : mempool.mapTx)
++    {
++        nTxCount++;
++        const uint256& hash = e.GetTx().GetHash();
++        LogPrintf("Relaying transaction %s\n", hash.ToString());
++        CInv inv(MSG_TX, hash);
++        g_connman->ForEachNode([&inv](CNode* pnode)
++        {
++            pnode->PushInventory(inv);
++        });
++    }
++    LogPrintf("Relayed %d transactions\n", nTxCount);
++    UniValue result(nTxCount);
++    return result;
++}
++
+ static const CRPCCommand commands[] =
+ { //  category              name                      actor (function)         argNames
+   //  --------------------- ------------------------  -----------------------  ----------
+@@ -1044,6 +1085,7 @@ static const CRPCCommand commands[] =
+     { "rawtransactions",    "sendrawtransaction",     &sendrawtransaction,     {"hexstring","allowhighfees"} },
+     { "rawtransactions",    "combinerawtransaction",  &combinerawtransaction,  {"txs"} },
+     { "rawtransactions",    "signrawtransaction",     &signrawtransaction,     {"hexstring","prevtxs","privkeys","sighashtype"} }, /* uses wallet if enabled */
++    { "rawtransactions",    "resendmempooltransaction", &resendmempooltransaction, {} },
+ 
+     { "blockchain",         "gettxoutproof",          &gettxoutproof,          {"txids", "blockhash"} },
+     { "blockchain",         "verifytxoutproof",       &verifytxoutproof,       {"proof"} },

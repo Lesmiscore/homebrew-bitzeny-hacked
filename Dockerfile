@@ -19,7 +19,7 @@ ARG JOBS=8
 ARG USE_DEPENDS=no
 
 COPY patch.sh /usr/bin/patch-multi
-COPY $PATCHES /patches.txt
+COPY patches/$PATCHES /patches/
 COPY builds.sh /usr/bin/build-now
 
 RUN apt-fast upgrade -y -qq && \

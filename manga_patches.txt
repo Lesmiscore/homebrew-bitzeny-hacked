@@ -1,3 +1,0 @@
-https://gist.github.com/nao20010128nao/5e4fdc302ca7954a26b48e0d0cf1b525/raw/bced7b3d172bc3d5d2cb6551e12fcd1b7491c604/txverify.diff
-https://gist.github.com/nao20010128nao/5e4fdc302ca7954a26b48e0d0cf1b525/raw/874a130843be5c0117d2b5558efe6f3712ad831b/disable-mempool-conflict-check.diff
-https://gist.github.com/nao20010128nao/ed8cc72d88754cdcf3688079e47d0e59/raw/75b5d812f74fb58e0d7c2c051eff170d70834777/allow-frequirestandard-false.diff

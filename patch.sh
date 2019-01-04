@@ -1,6 +1,6 @@
 #!/bin/bash
 set +e
-cat "$1" | grep -v "^#" | grep -v "^$" | while read line ; do
+find /patches | sort | tail -n+2 | while read line ; do
   echo "Patching $line"
-  wget -qO- "$line" | patch -p1 || echo "Failed"
+  ( patch -p1 < $line ) || echo "Failed"
 done

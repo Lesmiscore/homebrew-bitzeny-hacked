@@ -1,0 +1,16 @@
+diff --git a/src/miner.cpp b/src/miner.cpp
+index 9d571a2..4dabee5 100644
+--- a/src/miner.cpp
++++ b/src/miner.cpp
+@@ -378,11 +378,6 @@ void BlockAssembler::addPackageTxs(int &nPackagesSelected, int &nDescendantsUpda
+             packageSigOpsCost = modit->nSigOpCostWithAncestors;
+         }
+ 
+-        if (packageFees < blockMinFeeRate.GetFee(packageSize)) {
+-            // Everything else we might consider has a lower fee rate
+-            return;
+-        }
+-
+         if (!TestPackage(packageSize, packageSigOpsCost)) {
+             if (fUsingModified) {
+                 // Since we always look at the best entry in mapModifiedTx,

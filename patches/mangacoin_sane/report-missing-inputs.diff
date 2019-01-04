@@ -1,0 +1,27 @@
+diff --git a/src/validation.cpp b/src/validation.cpp
+index 4ae9546..8634acf 100644
+--- a/src/validation.cpp
++++ b/src/validation.cpp
+@@ -558,6 +558,7 @@ static bool AcceptToMemoryPoolWorker(const CChainParams& chainparams, CTxMemPool
+         view.SetBackend(viewMemPool);
+ 
+         // do all inputs exist?
++        bool validInputs = true;
+         for (const CTxIn txin : tx.vin) {
+             if (!pcoinsTip->HaveCoinInCache(txin.prevout)) {
+                 coins_to_uncache.push_back(txin.prevout);
+@@ -574,9 +575,13 @@ static bool AcceptToMemoryPoolWorker(const CChainParams& chainparams, CTxMemPool
+                 if (pfMissingInputs) {
+                     *pfMissingInputs = true;
+                 }
+-                return false; // fMissingInputs and !state.IsInvalid() is used to detect this condition, don't set state.Invalid()
++                LogPrintf("Missing input: %s (%d)\n", txin.prevout.hash.ToString(), txin.prevout.n);
++                validInputs = false;
+             }
+         }
++        if (!validInputs) {
++            return false; // fMissingInputs and !state.IsInvalid() is used to detect this condition, don't set state.Invalid()
++        }
+ 
+         // Bring the best block into scope
+         view.GetBestBlock();

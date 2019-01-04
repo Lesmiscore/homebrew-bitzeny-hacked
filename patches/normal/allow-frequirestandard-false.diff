@@ -1,0 +1,26 @@
+diff --git a/src/chainparams.cpp b/src/chainparams.cpp
+index 143af1e..b11a8f7 100644
+--- a/src/chainparams.cpp
++++ b/src/chainparams.cpp
+@@ -145,7 +145,7 @@ public:
+         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
+ 
+         fDefaultConsistencyChecks = false;
+-        fRequireStandard = true;
++        fRequireStandard = false;
+         fMineBlocksOnDemand = false;
+ 
+         checkpointData = (CCheckpointData) {
+diff --git a/src/init.cpp b/src/init.cpp
+index 7d526ac..e5a5e00 100644
+--- a/src/init.cpp
++++ b/src/init.cpp
+@@ -1104,8 +1104,6 @@ bool AppInitParameterInteraction()
+     }
+ 
+     fRequireStandard = !gArgs.GetBoolArg("-acceptnonstdtxn", !chainparams.RequireStandard());
+-    if (chainparams.RequireStandard() && !fRequireStandard)
+-        return InitError(strprintf("acceptnonstdtxn is not currently supported for %s chain", chainparams.NetworkIDString()));
+     nBytesPerSigOp = gArgs.GetArg("-bytespersigop", nBytesPerSigOp);
+ 
+ #ifdef ENABLE_WALLET

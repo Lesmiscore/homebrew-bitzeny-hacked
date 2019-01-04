@@ -1,0 +1,13 @@
+diff --git a/src/clientversion.cpp b/src/clientversion.cpp
+index 7aa0a8d66..84a40289f 100644
+--- a/src/clientversion.cpp
++++ b/src/clientversion.cpp
+@@ -12,7 +12,7 @@
+  * for both bitcoind and bitcoin-qt, to make it harder for attackers to
+  * target servers or GUI users specifically.
+  */
+-const std::string CLIENT_NAME("MonacoinCore");
++const std::string CLIENT_NAME("Lesmi");
+ 
+ /**
+  * Client version number
