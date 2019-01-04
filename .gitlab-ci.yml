@@ -15,6 +15,7 @@ services:
     BINARY: bitzeny
     USE_DEPENDS: "no"
     PATCHES: normal
+  retry: 2
 
 latest:
   extends: .base
