@@ -6,9 +6,14 @@ services:
 .base:
   script:
     - if [ "LM26/homebrew-bitzeny-hacked" == "$CI_PROJECT_PATH" ]; then docker login -u "$DOCKER_USER" -p "$DOCKER_PASS" ; fi
-    - docker build --build-arg REF=$REF --build-arg REPO=$REPO --build-arg BINARY=$BINARY --build-arg USE_DEPENDS=$USE_DEPENDS --build-arg PATCHES=$PATCHES -t nao20010128nao/homebrew-bitzeny-hacked:$TAG -f $DOCKER_FILE .
+    - if [ "LM26/homebrew-bitzeny-hacked" == "$CI_PROJECT_PATH" ]; then docker login -u "LM26" -p "$GITLAB_PASS" registry.gitlab.com ; fi
+    - export HBHR=$CI_COMMIT_SHORT_SHA
+    - docker build --build-arg REF=$REF --build-arg REPO=$REPO --build-arg BINARY=$BINARY --build-arg USE_DEPENDS=$USE_DEPENDS --build-arg PATCHES=$PATCHES -t nao20010128nao/homebrew-bitzeny-hacked:$TAG -t nao20010128nao/homebrew-bitzeny-hacked:$TAG-$HBHR -t registry.gitlab.com/lm26/homebrew-bitzeny-hacked:$TAG -t registry.gitlab.com/lm26/homebrew-bitzeny-hacked:$TAG-$HBHR -f $DOCKER_FILE .
     - docker run --rm -i nao20010128nao/homebrew-bitzeny-hacked:$TAG -version
     - docker push nao20010128nao/homebrew-bitzeny-hacked:$TAG
+    - docker push nao20010128nao/homebrew-bitzeny-hacked:$TAG-$HBHR
+    - docker push registry.gitlab.com/lm26/homebrew-bitzeny-hacked:$TAG
+    - docker push registry.gitlab.com/lm26/homebrew-bitzeny-hacked:$TAG-$HBHR
   variables:
     DOCKER_USER: nao20010128nao
     DOCKER_FILE: Dockerfile
