@@ -1,0 +1,57 @@
+diff --git a/src/consensus/tx_verify.cpp b/src/consensus/tx_verify.cpp
+index 439e41fd1..0b408abd1 100755
+--- a/src/consensus/tx_verify.cpp
++++ b/src/consensus/tx_verify.cpp
+@@ -159,7 +159,7 @@ int64_t GetTransactionSigOpCost(const CTransaction& tx, const CCoinsViewCache& i
+     return nSigOps;
+ }
+ 
+-bool CheckTransaction(const CTransaction& tx, CValidationState &state, bool fCheckDuplicateInputs)
++bool CheckTransaction(const CTransaction& tx, CValidationState &state, bool fCheckDuplicateInputs, bool fCheckDuplicateOutAddress)
+ {
+     // Basic checks that don't depend on any context
+     if (tx.vin.empty())
+@@ -172,8 +172,17 @@ bool CheckTransaction(const CTransaction& tx, CValidationState &state, bool fChe
+ 
+     // Check for negative or overflow output values
+     CAmount nValueOut = 0;
++    std::vector<CScript> out_addresses;
++
+     for (const auto& txout : tx.vout)
+     {
++        if (fCheckDuplicateOutAddress) {
++          auto it = std::find(out_addresses.begin(), out_addresses.end(), txout.scriptPubKey);
++          if (it != out_addresses.end()) {
++            return state.DoS(0, false, REJECT_INVALID, "bad-txns-vout-duplicate");
++          }
++        }
++        out_addresses.push_back(txout.scriptPubKey);
+         if (txout.nValue < 0)
+             return state.DoS(100, false, REJECT_INVALID, "bad-txns-vout-negative");
+         if (txout.nValue > MAX_MONEY)
+diff --git a/src/consensus/tx_verify.h b/src/consensus/tx_verify.h
+index d46d3294c..37cf486c2 100644
+--- a/src/consensus/tx_verify.h
++++ b/src/consensus/tx_verify.h
+@@ -16,7 +16,7 @@ class CValidationState;
+ /** Transaction validation functions */
+ 
+ /** Context-independent validity checks */
+-bool CheckTransaction(const CTransaction& tx, CValidationState& state, bool fCheckDuplicateInputs=true);
++bool CheckTransaction(const CTransaction& tx, CValidationState& state, bool fCheckDuplicateInputs=true, bool fCheckDuplicateOutAddress=false);
+ 
+ namespace Consensus {
+ /**
+diff --git a/src/validation.cpp b/src/validation.cpp
+index 495267773..771435344 100644
+--- a/src/validation.cpp
++++ b/src/validation.cpp
+@@ -470,7 +470,7 @@ static bool AcceptToMemoryPoolWorker(const CChainParams& chainparams, CTxMemPool
+     if (pfMissingInputs)
+         *pfMissingInputs = false;
+ 
+-    if (!CheckTransaction(tx, state))
++    if (!CheckTransaction(tx, state, true, true))
+         return false; // state filled in by CheckTransaction
+ 
+     // Coinbase is only valid in a block, not as a loose transaction
