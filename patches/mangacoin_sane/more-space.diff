@@ -9,7 +9,7 @@ index adfedcc..8afdd53 100644
          pblock->nTime = nNewTime;
  
 +    // 
-+    pblock->nTime -= 30;
++    pblock->nTime += 10 * 60;
 +
      // Updating time can change work required on testnet:
      if (consensusParams.fPowAllowMinDifficultyBlocks)
