@@ -1,16 +1,13 @@
-# Apply this to make abnormal spacing
-
 diff --git a/src/miner.cpp b/src/miner.cpp
-index adfedcc..8afdd53 100644
+index adfedcc25..e3d2f3479 100644
 --- a/src/miner.cpp
 +++ b/src/miner.cpp
-@@ -54,6 +54,9 @@ int64_t UpdateTime(CBlockHeader* pblock, const Consensus::Params& consensusParam
-     if (nOldTime < nNewTime)
-         pblock->nTime = nNewTime;
- 
-+    // 
-+    pblock->nTime += 10 * 60;
-+
-     // Updating time can change work required on testnet:
+@@ -58,6 +58,8 @@ int64_t UpdateTime(CBlockHeader* pblock, const Consensus::Params& consensusParam
      if (consensusParams.fPowAllowMinDifficultyBlocks)
          pblock->nBits = GetNextWorkRequired(pindexPrev, pblock, consensusParams);
+ 
++    pblock->nTime += 10 * 60;
++
+     return nNewTime - nOldTime;
+ }
+ 
