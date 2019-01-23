@@ -7,7 +7,7 @@ fi
 if ! [ -z "$BINARY" ] ; then
   export PATCH_DIRS="$PATCH_DIRS /patches/$BINARY"
 fi
-if ! [ -z "$PATCH_DIRS" ] ; then
+if [ -z "$PATCH_DIRS" ] ; then
   exit 0
 fi
 
