@@ -75,7 +75,6 @@ mangacoin:
     REF: master
     REPO: mangacoinproject/mangacoin
     BINARY: mangacoin
-    PATCHES: mangacoin
     USE_DEPENDS: https://github.com/monacoinproject/monacoin/archive/master-0.16.zip
 
 mangacoin-addrindex:
@@ -95,5 +94,4 @@ mangacoin-sane:
     REF: master
     REPO: mangacoinproject/mangacoin
     BINARY: mangacoin
-    PATCHES: mangacoin_sane
     USE_DEPENDS: https://github.com/monacoinproject/monacoin/archive/master-0.16.zip
