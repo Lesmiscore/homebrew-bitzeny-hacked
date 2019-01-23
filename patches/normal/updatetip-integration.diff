@@ -14,7 +14,7 @@ index b500e0c..52b135a 100644
        DateTimeStrFormat("%Y-%m-%d %H:%M:%S", pindexNew->GetBlockTime()),
 -      GuessVerificationProgress(chainParams.TxData(), pindexNew), pcoinsTip->DynamicMemoryUsage() * (1.0 / (1<<20)), pcoinsTip->GetCacheSize());
 +      GuessVerificationProgress(chainParams.TxData(), pindexNew), pcoinsTip->DynamicMemoryUsage() * (1.0 / (1<<20)), pcoinsTip->GetCacheSize(),
-+      pindexNew->GetBlockHeader().GetPoWHash().ToString());
++      pindexNew->GetBlockHeader().GetPoWHash(true).ToString());
      if (!warningMessages.empty())
          LogPrintf(" warning='%s'", boost::algorithm::join(warningMessages, ", "));
      LogPrintf("\n");
