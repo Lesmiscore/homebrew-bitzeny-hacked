@@ -97,3 +97,11 @@ mangacoin-sane:
     BINARY: mangacoin
     PATCHES: mangacoin-sane
     USE_DEPENDS: https://github.com/monacoinproject/monacoin/archive/master-0.16.zip
+
+noblegas:
+  extends: .base
+  variables:
+    TAG: noblegas
+    REF: master-0.16
+    REPO: noblegascoin/noblegascoin
+    BINARY: noblegascoin
