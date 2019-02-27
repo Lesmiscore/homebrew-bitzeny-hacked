@@ -8,7 +8,7 @@ services:
     - if [ "LM26/homebrew-bitzeny-hacked" == "$CI_PROJECT_PATH" ]; then docker login -u "$DOCKER_USER" -p "$DOCKER_PASS" ; fi
     - if [ "LM26/homebrew-bitzeny-hacked" == "$CI_PROJECT_PATH" ]; then docker login -u "LM26" -p "$GITLAB_PASS" registry.gitlab.com ; fi
     - export HBHR=$CI_COMMIT_SHORT_SHA
-    - docker build --build-arg REF=$REF --build-arg REPO=$REPO --build-arg BINARY=$BINARY --build-arg USE_DEPENDS=$USE_DEPENDS --build-arg PATCHES=$PATCHES -t nao20010128nao/homebrew-bitzeny-hacked:$TAG -t nao20010128nao/homebrew-bitzeny-hacked:$TAG-$HBHR -t registry.gitlab.com/lm26/homebrew-bitzeny-hacked:$TAG -t registry.gitlab.com/lm26/homebrew-bitzeny-hacked:$TAG-$HBHR -f $DOCKER_FILE .
+    - docker build --build-arg REF=$REF --build-arg REPO=$REPO --build-arg BINARY=$BINARY --build-arg USE_DEPENDS=$USE_DEPENDS --build-arg PATCHES=$PATCHES --build-arg BASEIMG=$BASEIMG -t nao20010128nao/homebrew-bitzeny-hacked:$TAG -t nao20010128nao/homebrew-bitzeny-hacked:$TAG-$HBHR -t registry.gitlab.com/lm26/homebrew-bitzeny-hacked:$TAG -t registry.gitlab.com/lm26/homebrew-bitzeny-hacked:$TAG-$HBHR -f $DOCKER_FILE .
     - docker run --rm -i nao20010128nao/homebrew-bitzeny-hacked:$TAG -version
     - docker push nao20010128nao/homebrew-bitzeny-hacked:$TAG
     - docker push nao20010128nao/homebrew-bitzeny-hacked:$TAG-$HBHR
@@ -20,6 +20,7 @@ services:
     BINARY: bitzeny
     USE_DEPENDS: "no"
     PATCHES: normal
+    BASEIMG: ubuntu
   retry: 2
 
 latest:
@@ -105,3 +106,10 @@ noblegas:
     REF: master-0.16
     REPO: noblegascoin/noblegascoin
     BINARY: noblegascoin
+
+
+bellcoin-debian9:
+  extends: bellcoin
+  variables:
+    BASEIMG: "debian:9"
+
