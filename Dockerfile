@@ -1,4 +1,5 @@
-FROM ubuntu as base
+ARG BASEIMG=ubuntu
+FROM $BASEIMG as base
 
 RUN apt-get update -qq -y && \
   apt-get install -y wget aria2 && \
