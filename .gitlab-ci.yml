@@ -108,8 +108,8 @@ noblegas:
     BINARY: noblegascoin
 
 
-bellcoin-debian9:
-  extends: bellcoin
-  variables:
-    BASEIMG: "debian:9"
+#bellcoin-debian9:
+#  extends: bellcoin
+#  variables:
+#    BASEIMG: "debian:9"
 
