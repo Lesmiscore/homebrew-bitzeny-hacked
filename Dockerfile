@@ -39,6 +39,7 @@ RUN apt-fast upgrade -y -qq && \
   git clone https://github.com/${REPO}.git /${BINARY} && \
   cd /${BINARY} && \
   git checkout "$REF" && \
+  (./depends/config.guess || true) && \
   patch-multi /patches.txt && \
   chmod a+x /usr/bin/build-now && \
   build-now
